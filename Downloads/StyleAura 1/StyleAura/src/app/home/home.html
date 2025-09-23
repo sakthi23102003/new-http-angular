@@ -1,0 +1,75 @@
+<section class="slider">
+  <div class="slides">
+    <img *ngFor="let slide of slides; let i = index" 
+         [src]="slide" 
+         [alt]="'Slide ' + (i + 1)" 
+         [class.active]="i === currentSlide">
+  </div>
+  <!-- Navigation Arrows -->
+  <span class="prev" (click)="prevSlide()">&#10094;</span>
+  <span class="next" (click)="nextSlide()">&#10095;</span>
+
+  <!-- Dots -->
+  <div class="dots">
+    <span *ngFor="let dot of slides; let i = index" 
+          [class.active]="i === currentSlide" 
+          (click)="goToSlide(i)"></span>
+  </div>
+</section>
+<!-- Best Selling Products Section -->
+<section class="best-selling">
+  <h2>Best Selling Products</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="assets/images/waterfroof shirt.jpg" alt="Waterproof Shirt">
+      <h3>Waterproof Shirt</h3>
+      <p class="price">₹1,299</p>
+      <p class="desc">Stay dry & stylish with our breathable waterproof fabric.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="assets/images/shirt_men.jpg" alt="Sketch Shirt">
+      <h3>Sketch Shirt</h3>
+      <p class="price">₹999</p>
+      <p class="desc">Wear your art with our hand-designed sketch style shirts.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="assets/images/cs.jpg" alt="Convertible Saree">
+      <h3>Convertible Saree</h3>
+      <p class="price">₹2,499</p>
+      <p class="desc">One saree, endless draping possibilities for modern women.</p>
+    </div>
+
+    <div class="product-card">
+      <img src="assets/images/pocket saree.webp" alt="Pocket Saree">
+      <h3>Pocket Saree</h3>
+      <p class="price">₹1,799</p>
+      <p class="desc">Tradition meets innovation with a saree that has pockets.</p>
+    </div>
+  </div>
+</section>
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review-container">
+    <div class="review-card" *ngFor="let review of reviews">
+      <h3>{{ review.name }}</h3>
+      <div class="rating">
+        <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+          <i class="fa" [ngClass]="i < review.rating ? 'fa fa-star' : 'fa fa-star-o'"></i>
+        </ng-container>
+      </div>
+      <p>{{ review.text }}</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Get the Latest Deals & Updates</h2>
+  <form (submit)="subscribeNewsletter($event)">
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+

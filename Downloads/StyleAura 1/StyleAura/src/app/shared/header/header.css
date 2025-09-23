@@ -1,0 +1,31 @@
+header {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.top-banner {
+  background: #f04c4c;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+}
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+nav a.active {
+  font-weight: bold;
+  color: #f04c4c;
+}
+.logo img {
+  height: 20px;
+}
+
+
+

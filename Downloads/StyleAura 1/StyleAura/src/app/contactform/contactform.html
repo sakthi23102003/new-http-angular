@@ -1,0 +1,78 @@
+<!-- Heading -->
+<div class="page-heading">
+  <h1>CUSTOMER SERVICE</h1>
+</div>
+ 
+<!-- Form -->
+<div class="form-background">
+  <div class="form-container">
+    <form [formGroup]="queryForm" (ngSubmit)="onSubmit()">
+      <h2>POST YOUR QUERIES</h2>
+ 
+      <div class="form-row">
+        <div class="form-group">
+          <label>FIRST NAME</label>
+          <input type="text" formControlName="firstName" placeholder="Enter first name">
+          <div class="error" *ngIf="queryForm.get('firstName')?.touched && queryForm.get('firstName')?.invalid">
+            First name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label>LAST NAME</label>
+          <input type="text" formControlName="lastName" placeholder="Enter last name">
+          <div class="error" *ngIf="queryForm.get('lastName')?.touched && queryForm.get('lastName')?.invalid">
+            Last name is required
+          </div>
+        </div>
+      </div>
+ 
+      <div class="form-row">
+        <div class="form-group">
+          <label>EMAIL</label>
+          <input type="email" formControlName="email" placeholder="Enter email">
+          <div class="error" *ngIf="queryForm.get('email')?.touched && queryForm.get('email')?.invalid">
+            Valid email is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label>PHONE NUMBER</label>
+          <input type="text" formControlName="phone" placeholder="10-digit number">
+          <div class="error" *ngIf="queryForm.get('phone')?.touched && queryForm.get('phone')?.invalid">
+            Enter a valid 10-digit phone number
+          </div>
+        </div>
+      </div>
+ 
+      <div class="form-group">
+        <label>QUERY</label>
+        <textarea rows="3" formControlName="query" placeholder="Enter your query"></textarea>
+        <div class="error" *ngIf="queryForm.get('query')?.touched && queryForm.get('query')?.invalid">
+          Query is required
+        </div>
+      </div>
+ 
+      <div class="button-container">
+        <button type="submit">POST IT</button>
+      </div>
+    </form>
+  </div>
+</div>
+ 
+<!-- FAQ -->
+<div class="faq-main-title">
+  <h2>FAQ'S</h2>
+</div>
+<div class="faqs-container">
+  <div class="faq-item" *ngFor="let faq of faqs">
+    <div class="faq-heading">
+      <div class="faq-number">
+        <span class="digit-black">{{ faq.number.charAt(0) }}</span>
+        <span class="digit-red">{{ faq.number.slice(1) }}</span>
+      </div>
+    </div>
+    <div class="faq-question">{{ faq.question }}</div>
+    <p>{{ faq.answer }}</p>
+  </div>
+</div>
+ 
+ 
