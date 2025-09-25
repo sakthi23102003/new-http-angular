@@ -20,14 +20,15 @@
 <section class="best-selling">
   <h2>Best Selling Products</h2>
   <div class="product-grid">
-    <div class="product-card">
-      <img src="assets/images/waterfroof shirt.jpg" alt="Waterproof Shirt">
-      <h3>Waterproof Shirt</h3>
-      <p class="price">₹1,299</p>
+    <div class="product-card" *ngFor="let productbest of bestsellers">
+     <img [src]="productbest.thumbnail" [alt]="productbest.title" />
+          <h4>{{ productbest.title }}</h4>
+          <p>{{ productbest.price | currency : 'INR' }}</p>
       <p class="desc">Stay dry & stylish with our breathable waterproof fabric.</p>
     </div>
-
-    <div class="product-card">
+  </div>
+</section>
+    <!-- <div class="product-card">
       <img src="assets/images/shirt_men.jpg" alt="Sketch Shirt">
       <h3>Sketch Shirt</h3>
       <p class="price">₹999</p>
@@ -47,8 +48,7 @@
       <p class="price">₹1,799</p>
       <p class="desc">Tradition meets innovation with a saree that has pockets.</p>
     </div>
-  </div>
-</section>
+  </div> -->
 <section class="reviews">
   <h2>Customer Reviews</h2>
   <div class="review-container">
